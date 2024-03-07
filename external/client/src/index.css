@@ -1,0 +1,94 @@
+body{
+  font-family: 'Gill Sans MT';
+  background-color: black;
+  color: white;
+} 
+
+pre{
+  font-family: 'lucida console';
+}
+
+.console-output{
+  padding: 10px;
+  height: 100%;
+  font-size: 20px;
+}
+
+.cmd-input{
+  padding: 10px;
+  width: calc(100% - 20px);
+  color: white;
+  background-color: black;
+  font-size: 20px;
+  font-family: 'lucida console';
+  border: none;
+}
+
+.cmd-input:active, .cmd-input:focus{
+  border: none;
+  outline: none;
+}
+
+span {
+  font-size: 25px;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  font-size: 20px;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group input, .form-group button{
+  font-size: 20px;
+}
+
+.wrapper{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+table{
+  border-collapse: collapse;
+}
+
+th, td{
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+th{
+  background-color: #ccc;
+  color:black;
+}
+
+.the{
+  box-shadow: 0px -1px 31px 0px rgba(204,204,204,1);
+  width: fit-content;
+  text-align: center;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 20px;
+  border-radius: 20px;
+  flex-wrap: wrap;
+}
+
+.parent-the{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+  gap: 50px;
+}
+
+#lappi{
+  width: 300px;
+}

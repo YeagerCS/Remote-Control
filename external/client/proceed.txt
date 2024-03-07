@@ -1,0 +1,10 @@
+All Ips get pulled from the start:
+
+- Check if flask server is accessible with IP instead of localhost
+- Add all pulled ips in an array
+- Display all pulled ips on a start page
+- Select ips for the current device
+- Replace websocket host with selected ip
+- Remove device identifier
+
+- (Does this work with public ips?)
