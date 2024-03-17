@@ -10,10 +10,15 @@ The end user runs a c# application on his device, enabling another user (remote 
 - `wallpaper https://<url>` => sets a wallpaper on the device
 - `write <file.ext> "<text>"` => writes to the specified file
 
+You can implement more custom remote commands by creating a class and implementing the interface `IReactCommand`. Override the 'Command' string and the 'Execute' method.
+
 ## How it works
 ### Structure
 <img src="/gitImages/diagram.png"/>
 The end user runs the c# application, which opens a local WebSocket on the local IPV4 of the device. The c# application then sends a POST request to the python API server with the local ip address as the payload. The python server then immediately emits the local ip, via the socket connection, to the react client. In the clients startpage appear devices that are connected to the application aka every ip that was emitted from the python server. When a user closes the c# application, the ip gets removed. On the client upon selecting a device, the remote user can execute commands on the end users system. The client has a real-time connection with the Websocket of the application and can send commands. After a command is sent, the c# application either executes the command as a cmd command or as a custom command and sends the output back to the client, which then displays it.
+
+### More
+Connected devices are automatically shown on the client home page. When a device disconnects, the web page needs to be refreshed and it takes a few seconds to register and remove any disconnected device. Unfortunately, the device only gets removed from the server when the client is active, because the way that it gets removed is to check whether the Websocket has a valid connection on that IP.
 
 ## How to run
 ### C# Application
@@ -28,7 +33,7 @@ npm run dev
 Here, you'll also need to change the host in `/external/client/src/components/IPReceiver.jsx:11`, to your API server.
 
 ### Python API Server
-Navigate to `/external/server`, to find `api.py`. In the terminal, enter:
+Navigate to `/external/server`, to find `api.py`. In the terminal, enter (if not installed already):
 ```
 pip install flask
 pip install flask_socketio
